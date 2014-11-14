@@ -1,0 +1,14 @@
+{
+	"manifest_version": 2,
+	"name": "It's not a bug, it's a feature!",
+	"version": "1.0",
+	"description": "Change every instance of bug to feature.",
+	"content_scripts": 
+	[
+		{
+			"matches": ["*://*/*"],
+			"js": ["script.js"],
+			"run_at": "document_end"
+		}
+	]
+}
