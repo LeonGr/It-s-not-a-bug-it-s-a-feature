@@ -1,22 +1,19 @@
 readDoc(document.body);
 
-function readDoc(node) 
-{
+function readDoc(node) {
 	// I stole this function from here:
 	// http://is.gd/mwZp7E
 	
 	var child, next;
 
-	switch ( node.nodeType )  
-	{
+	switch ( node.nodeType ) {
 		case 1:  // Element
 		case 9:  // Document
 		case 11: // Document fragment
 			child = node.firstChild;
-			while ( child ) 
-			{
+			while ( child ) {
 				next = child.nextSibling;
-				walk(child);
+				readDoc(child);
 				child = next;
 			}
 			break;
@@ -27,8 +24,7 @@ function readDoc(node)
 	}
 }
 
-function changeWord(textNode) 
-{
+function changeWord(textNode) {
 	var v = textNode.nodeValue;
 
 	v = v.replace(/\bBug\b/g, "Feature");
